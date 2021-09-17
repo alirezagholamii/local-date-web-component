@@ -1,6 +1,11 @@
 # \<local-date>
 
+it's a web compnent which shows date in different  formats.
 
+- 'en-GB' for British English uses day-month-year.order
+- 'ko-KR' for Korean uses year-month-day order.
+- 'fa-IR' for Persian, convert date to Solar Hijri.
+- 'ar-EG' for Arabic uses real Arabic digits.
 
 ## Installation
 
@@ -16,6 +21,19 @@ npm i local-date
 </script>
 
 <local-date></local-date>
+// it shows date in 'en-US' format // 9/17/2021
+
+<local-date date="1/1/2020" format="ko-KR"></local-date>
+// 2020. 1. 1.
+
+<local-date date="1/1/2020" format="fa-IR"></local-date>
+// ۱۳۹۸/۱۰/۱۱
+
+<local-date date="1/1/2020" numbers="english" format="fa-IR"></local-date>
+// 1398/10/11
+
+
+
 ```
 
 ## Tooling configs
