@@ -14,6 +14,11 @@ export class LocalDate extends HTMLElement {
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.appendChild(template.content.cloneNode(true))
         this.localeDate = '';
+        this.makeLocaleDate();
+
+
+    }
+    makeLocaleDate() {
         this.date = this.getAttribute('date') || (new Date()).valueOf();
         this.format = this.getAttribute('format') || 'en-US';
         this.indicator = this.getAttribute('indicator');
@@ -21,7 +26,6 @@ export class LocalDate extends HTMLElement {
         this.options = this.getOptions();
 
         this.toLocaleDate();
-        console.log(this.localeDate);
         if (this.indicator !== null) {
             this.replaceIndicator()
         }
@@ -29,9 +33,18 @@ export class LocalDate extends HTMLElement {
         if (this.numbersLang === 'english') {
             this.replaceNumbers()
         }
-
-        this.shadowRoot.querySelector('.local-date').innerHTML = this.localeDate;
-
+    }
+    static get observedAttributes() {
+        return ['date', 'format', 'indicator', 'numbers'];
+    }
+    connectedCallback() {
+        this.makeLocaleDate()
+        this.render()
+    }
+    attributeChangedCallback(attrName, oldVal, newVal) {
+        this[attrName] = newVal;
+        this.makeLocaleDate()
+        this.render()
     }
 
     toLocaleDate() {
