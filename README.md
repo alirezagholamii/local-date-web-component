@@ -1,6 +1,6 @@
 # \<local-date>
 
-it's a web compnent which shows date in different  formats.
+it's a web component which shows date in different  formats.
 
 - 'en-GB' for British English uses day-month-year.order
 - 'ko-KR' for Korean uses year-month-day order.
