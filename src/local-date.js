@@ -13,36 +13,36 @@ export class LocalDate extends HTMLElement {
         super();
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.appendChild(template.content.cloneNode(true))
+        this.localeDate = '';
+        this.date = this.getAttribute('date') || (new Date()).valueOf();
+        this.format = this.getAttribute('format') || 'en-US';
+        this.indicator = this.getAttribute('indicator');
+        this.numbersLang = this.getAttribute('numbers');
+        this.options = this.getOptions();
 
-        const date = this.getAttribute('date') || (new Date()).valueOf();
-        const format = this.getAttribute('format');
-        const indicator = this.getAttribute('indicator');
-        const numbersLang = this.getAttribute('numbers');
-        const options = this.getOptions();
+        this.toLocaleDate();
+        console.log(this.localeDate);
+        // if (this.indicator !== null) {
+        //     this.replaceIndicator()
+        // }
 
-        let localeDate = this.toLocaleDate(date, format, options);
+        // if (this.numbersLang === 'english') {
+        //     this.replaceNumbers()
+        // }
 
-        if (indicator !== null) {
-            localeDate = this.replaceIndicator(localeDate, indicator)
-        }
+        this.shadowRoot.querySelector('.local-date').innerHTML = this.localeDate;
 
-        if (numbersLang === 'english') {
-            localeDate = this.replaceNumbers(localeDate)
-        }
-
-        this.shadowRoot.querySelector('.local-date').innerHTML = localeDate;
     }
 
-    toLocaleDate(value, format = 'en-US', options) {
-        const date = new Date(value)
-        const localDate = date.toLocaleDateString(format, options)
-        return localDate
+    toLocaleDate() {
+        this.date = new Date(this.date)
+        this.localeDate = this.date.toLocaleDateString(this.format, this.options)
     }
-    replaceIndicator(date, indicator) {
-        return date.replace(/\/|\. |\./g, indicator)
+    replaceIndicator() {
+        this.localeDate = this.localeDate.replace(/\/|\. |\./g, this.indicator)
     }
-    replaceNumbers(date) {
-        return date.replace(/[\u0660-\u0669]/g, function (c) {
+    replaceNumbers() {
+        this.localeDate = this.localeDate.replace(/[\u0660-\u0669]/g, function (c) {
             return c.charCodeAt(0) - 0x0660;
         }).replace(/[\u06f0-\u06f9]/g, function (c) {
             return c.charCodeAt(0) - 0x06f0;
@@ -59,6 +59,11 @@ export class LocalDate extends HTMLElement {
             }
         }
         return options
+    }
+
+    render() {
+        console.log(this);
+        this.shadowRoot.querySelector('.local-date').innerHTML = this.localeDate;
     }
 
 }
