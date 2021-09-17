@@ -22,13 +22,13 @@ export class LocalDate extends HTMLElement {
 
         this.toLocaleDate();
         console.log(this.localeDate);
-        // if (this.indicator !== null) {
-        //     this.replaceIndicator()
-        // }
+        if (this.indicator !== null) {
+            this.replaceIndicator()
+        }
 
-        // if (this.numbersLang === 'english') {
-        //     this.replaceNumbers()
-        // }
+        if (this.numbersLang === 'english') {
+            this.replaceNumbers()
+        }
 
         this.shadowRoot.querySelector('.local-date').innerHTML = this.localeDate;
 
@@ -62,7 +62,6 @@ export class LocalDate extends HTMLElement {
     }
 
     render() {
-        console.log(this);
         this.shadowRoot.querySelector('.local-date').innerHTML = this.localeDate;
     }
 
