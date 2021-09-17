@@ -1,0 +1,28 @@
+{
+  "name": "local-date",
+  "version": "1.0.0",
+  "description": "showing local date",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "web-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alirezagholamii/local-date-custom-element.git"
+  },
+  "keywords": [
+    "date",
+    "local-date"
+  ],
+  "author": "Alireza Gholami",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alirezagholamii/local-date-custom-element/issues"
+  },
+  "homepage": "https://github.com/alirezagholamii/local-date-custom-element#readme",
+  "devDependencies": {
+    "@web/dev-server": "^0.1.22"
+  },
+  "type": "module"
+}
