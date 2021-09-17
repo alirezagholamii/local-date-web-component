@@ -6,22 +6,30 @@ it's a web compnent which shows date in different  formats.
 - 'ko-KR' for Korean uses year-month-day order.
 - 'fa-IR' for Persian, convert date to Solar Hijri.
 - 'ar-EG' for Arabic uses real Arabic digits.
+- 'nl' for Dutch format.
+- . . .
 
 ## Installation
 
 ```bash
-npm i local-date
+npm i local-date-web-component
 ```
 
 ## Usage
 
 ```html
 <script type="module">
-  import 'local-date/local-date.js';
+  import 'local-date-web-component';
 </script>
 
+<local-date date="9/17/2021"></local-date>
+// it shows 9/17/2021
+
 <local-date></local-date>
-// it shows date in 'en-US' format // 9/17/2021
+// it shows current date in 'en-US' format 
+
+<local-date format="en-GB"></local-date>
+// it shows current date in 'en-GB' format 
 
 <local-date date="1/1/2020" format="ko-KR"></local-date>
 // 2020. 1. 1.

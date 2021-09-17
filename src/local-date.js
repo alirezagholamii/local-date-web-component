@@ -18,22 +18,7 @@ export class LocalDate extends HTMLElement {
 
 
     }
-    makeLocaleDate() {
-        this.date = this.getAttribute('date') || (new Date()).valueOf();
-        this.format = this.getAttribute('format') || 'en-US';
-        this.indicator = this.getAttribute('indicator');
-        this.numbersLang = this.getAttribute('numbers');
-        this.options = this.getOptions();
 
-        this.toLocaleDate();
-        if (this.indicator !== null) {
-            this.replaceIndicator()
-        }
-
-        if (this.numbersLang === 'english') {
-            this.replaceNumbers()
-        }
-    }
     static get observedAttributes() {
         return ['date', 'format', 'indicator', 'numbers'];
     }
@@ -72,6 +57,23 @@ export class LocalDate extends HTMLElement {
             }
         }
         return options
+    }
+
+    makeLocaleDate() {
+        this.date = this.getAttribute('date') || (new Date()).valueOf();
+        this.format = this.getAttribute('format') || 'en-US';
+        this.indicator = this.getAttribute('indicator');
+        this.numbersLang = this.getAttribute('numbers');
+        this.options = this.getOptions();
+
+        this.toLocaleDate();
+        if (this.indicator !== null) {
+            this.replaceIndicator()
+        }
+
+        if (this.numbersLang === 'english') {
+            this.replaceNumbers()
+        }
     }
 
     render() {
