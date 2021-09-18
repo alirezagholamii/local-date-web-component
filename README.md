@@ -19,7 +19,7 @@ npm i local-date-web-component
 
 ```html
 <script type="module">
-  import 'local-date-web-component';
+  import 'local-date-web-component/local-date.js'
 </script>
 
 <local-date date="9/17/2021"></local-date>
