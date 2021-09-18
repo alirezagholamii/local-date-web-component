@@ -1,6 +1,6 @@
 {
   "name": "local-date-web-component",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "showing local date",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,12 @@
   },
   "keywords": [
     "date",
-    "local-date"
+    "local-date",
+    "jalali-date",
+    "hijri-date",
+    "formatter",
+    "web-component",
+    "custom-element"
   ],
   "author": "Alireza Gholami",
   "license": "ISC",
