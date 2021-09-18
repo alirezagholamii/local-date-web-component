@@ -1,6 +1,6 @@
 {
   "name": "local-date-web-component",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "showing local date",
   "main": "index.js",
   "scripts": {
