@@ -1,11 +1,13 @@
 {
   "name": "local-date-web-component",
   "version": "1.0.6",
-  "description": "showing local date",
+  "description": "Showing local date",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "web-dev-server"
+    "start": "web-dev-server --open",
+    "build": "esbuild index.js --bundle --minify --outfile=dist/local-date.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -28,7 +30,7 @@
   },
   "homepage": "https://github.com/alirezagholamii/local-date-custom-element#readme",
   "devDependencies": {
-    "@web/dev-server": "^0.1.22"
-  },
-  "type": "module"
+    "@web/dev-server": "^0.4.5",
+    "esbuild": "^0.24.0"
+  }
 }
